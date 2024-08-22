@@ -1,0 +1,22 @@
+name: c_statelsee_widget
+description: "세번째"
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/EEDA2805-8A3E-4DDD-A345-A18EE3E2E5F1_1_105_c.jpeg
+    - assets/F0255188-54C1-499D-9D39-3BA28E994539_4_5005_c.jpeg
