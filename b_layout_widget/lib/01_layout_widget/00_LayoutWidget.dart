@@ -1,5 +1,12 @@
-import 'package:flutter/cupertino.dart';
+import 'package:b_layout_widget/01_layout_widget/03_RowWidget.dart';
+import 'package:b_layout_widget/01_layout_widget/04_StackWidget.dart';
 import 'package:flutter/material.dart';
+import '01_MediaQueryWidget.dart';
+import '02_SizedBoxWidget.dart';
+import '05_ListViewWidget.dart';
+import '06_WrapWidget.dart';
+import '07_PaddingWidget.dart';
+import '08_AlignmentWidget.dart';
 
 class LayoutCombination extends StatelessWidget {
 
@@ -19,13 +26,22 @@ class LayoutCombination extends StatelessWidget {
           /// 위젯의 여백이나 패딩을 설정할 떄 사용하는 클래스이다.
           /// 이 클래스는 네 방향(위, 아래, 왼쪽, 오른쪽)의 여백을 개별적으로 설정할 수 있는 다양한 생성잘를 제공한다.
           ///
-          /// .all : 모든 방향에 동일한 크기의 여백을 설정한다.₩
+          /// .all : 모든 방향에 동일한 크기의 여백을 설정한다.
           /// .symmetric : 수직 방향과 수평 방향에 대한 여백을 설정한다.
           /// .only : 각 방향에 대해 개별적으로 여백을 설정한다.
           color: Colors.blue,
           child: Column(
             children: [
-              const Text("container 위젯")
+              const Text("container 위젯"),
+              const MediaQueryWidget(),
+              const SizedBoxWidget(),
+              const RowWidget(),
+              const StackWidget(),
+              const ListViewWidget(),
+              DynamicListView(),
+              const WrapWidget(),
+              PaddingWidget(size: 10.0),
+              const AlignmentWidget()
             ],
           ),
         )
