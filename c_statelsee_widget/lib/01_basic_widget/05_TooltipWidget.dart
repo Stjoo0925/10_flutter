@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 ///
 /// 주요 특징
 /// 사용자 친화적 : 사용자 ui 요소의 기능을 쉽게 이해할 수 있다.
-/// 자동 표시 : 특정 시간
+/// 자동 표시 : 특정 시간 동안 요소에 마우스를 올리면 자동으로 표시된다.
+/// 커스터마이징 : 배경색, 텍스트 스타일 등을 조정할 수 있다.
 
 class TooltipWidget extends StatelessWidget {
   const TooltipWidget({super.key});
