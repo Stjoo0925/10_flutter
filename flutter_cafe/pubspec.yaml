@@ -9,6 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  http: ^1.2.2
+
+dependency_overrides:
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:
@@ -19,3 +23,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/coffee.jpg
+  fonts:
+    - family: SF함박눈TTF
+      fonts:
+        - asset: assets/SF함박눈TTF.ttf

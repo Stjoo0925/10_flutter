@@ -1,0 +1,77 @@
+{
+    "cafe_list": [
+        {
+            "id": 1,
+            "imageUrl": "https://i.namu.wiki/i/bW8JSenYPYWbm5M6HHZ5qq2J9PKijIwKDcKCibWyoGSODmezwWBkgvrzxiDCMde039HoOrXeh4pc-rbml2HxVL5CA_yAW6hHYu0NVu-1tiQ2f-_pn5728WQVqx99uhoDKUOdxt2zqsgEQfldPiCP9w.webp",
+            "title": "아메리카노",
+            "content": "이것은 무지막지하게 맛 좋은 아메리카노입니다.",
+            "orderablestatus" : true
+        },
+        {
+            "id": 2,
+            "imageUrl": "https://i.namu.wiki/i/bW8JSenYPYWbm5M6HHZ5qq2J9PKijIwKDcKCibWyoGSODmezwWBkgvrzxiDCMde039HoOrXeh4pc-rbml2HxVL5CA_yAW6hHYu0NVu-1tiQ2f-_pn5728WQVqx99uhoDKUOdxt2zqsgEQfldPiCP9w.webp",
+            "title": "카페라떼",
+            "content": "부드러운 우유와 커피의 조화, 카페라떼입니다.",
+            "orderablestatus" : true
+        },
+        {
+            "id": 3,
+            "imageUrl": "https://i.namu.wiki/i/bW8JSenYPYWbm5M6HHZ5qq2J9PKijIwKDcKCibWyoGSODmezwWBkgvrzxiDCMde039HoOrXeh4pc-rbml2HxVL5CA_yAW6hHYu0NVu-1tiQ2f-_pn5728WQVqx99uhoDKUOdxt2zqsgEQfldPiCP9w.webp",
+            "title": "카푸치노",
+            "content": "거품이 풍부한 카푸치노, 향이 깊고 맛이 진합니다.",
+            "orderablestatus" : true
+        },
+        {
+            "id": 4,
+            "imageUrl": "https://i.namu.wiki/i/bW8JSenYPYWbm5M6HHZ5qq2J9PKijIwKDcKCibWyoGSODmezwWBkgvrzxiDCMde039HoOrXeh4pc-rbml2HxVL5CA_yAW6hHYu0NVu-1tiQ2f-_pn5728WQVqx99uhoDKUOdxt2zqsgEQfldPiCP9w.webp",
+            "title": "에스프레소",
+            "content": "강렬한 맛의 에스프레소, 한 잔으로 충분한 에너지를.",
+            "orderablestatus" : true
+        },
+        {
+            "id": 5,
+            "imageUrl": "https://i.namu.wiki/i/bW8JSenYPYWbm5M6HHZ5qq2J9PKijIwKDcKCibWyoGSODmezwWBkgvrzxiDCMde039HoOrXeh4pc-rbml2HxVL5CA_yAW6hHYu0NVu-1tiQ2f-_pn5728WQVqx99uhoDKUOdxt2zqsgEQfldPiCP9w.webp",
+            "title": "모카",
+            "content": "초콜릿의 달콤함과 커피의 쌉쌀함이 어우러진 모카입니다.",
+            "orderablestatus" : true
+        },
+        {
+            "id": 6,
+            "imageUrl": "https://i.namu.wiki/i/bW8JSenYPYWbm5M6HHZ5qq2J9PKijIwKDcKCibWyoGSODmezwWBkgvrzxiDCMde039HoOrXeh4pc-rbml2HxVL5CA_yAW6hHYu0NVu-1tiQ2f-_pn5728WQVqx99uhoDKUOdxt2zqsgEQfldPiCP9w.webp",
+            "title": "마키아토",
+            "content": "에스프레소에 살짝 얹어진 우유 거품, 마키아토입니다.",
+            "orderablestatus" : true
+        },
+        {
+            "id": 7,
+            "imageUrl": "https://i.namu.wiki/i/bW8JSenYPYWbm5M6HHZ5qq2J9PKijIwKDcKCibWyoGSODmezwWBkgvrzxiDCMde039HoOrXeh4pc-rbml2HxVL5CA_yAW6hHYu0NVu-1tiQ2f-_pn5728WQVqx99uhoDKUOdxt2zqsgEQfldPiCP9w.webp",
+            "title": "플랫 화이트",
+            "content": "진한 커피와 부드러운 우유의 완벽한 조화, 플랫 화이트.",
+            "orderablestatus" : true
+        },
+        {
+            "id": 8,
+            "imageUrl": "https://i.namu.wiki/i/bW8JSenYPYWbm5M6HHZ5qq2J9PKijIwKDcKCibWyoGSODmezwWBkgvrzxiDCMde039HoOrXeh4pc-rbml2HxVL5CA_yAW6hHYu0NVu-1tiQ2f-_pn5728WQVqx99uhoDKUOdxt2zqsgEQfldPiCP9w.webp",
+            "title": "아포가토",
+            "content": "에스프레소와 바닐라 아이스크림의 달콤한 만남, 아포가토.",
+            "orderablestatus" : true
+        },
+        {
+            "id": 9,
+            "imageUrl": "https://i.namu.wiki/i/bW8JSenYPYWbm5M6HHZ5qq2J9PKijIwKDcKCibWyoGSODmezwWBkgvrzxiDCMde039HoOrXeh4pc-rbml2HxVL5CA_yAW6hHYu0NVu-1tiQ2f-_pn5728WQVqx99uhoDKUOdxt2zqsgEQfldPiCP9w.webp",
+            "title": "콜드 브루",
+            "content": "느리고 차가운 추출 방식으로 깊은 맛을 내는 콜드 브루.",
+            "orderablestatus" : true
+        },
+        {
+            "id": 10,
+            "imageUrl": "https://i.namu.wiki/i/bW8JSenYPYWbm5M6HHZ5qq2J9PKijIwKDcKCibWyoGSODmezwWBkgvrzxiDCMde039HoOrXeh4pc-rbml2HxVL5CA_yAW6hHYu0NVu-1tiQ2f-_pn5728WQVqx99uhoDKUOdxt2zqsgEQfldPiCP9w.webp",
+            "title": "니트로 콜드 브루",
+            "content": "부드러운 질감과 깊은 맛이 매력적인 니트로 콜드 브루.",
+            "orderablestatus" : true
+        }
+    ],
+    "cafe_favorite" : [
+        
+    ]
+}
