@@ -83,7 +83,6 @@ class _DynamicListViewState extends State<DynamicListView> {
                 imageUrl: items[index]["imageUrl"] as String, // 이미지 URL
                 title: items[index]["title"] as String, // 제목
                 content: items[index]["content"] as String, // 내용
-                productId: items[index]["productId"] as int, // 프로덕트 ID
                 onDelete: () => _deleteItem(index), // 삭제 함수
               ),
             ),

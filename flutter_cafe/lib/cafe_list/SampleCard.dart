@@ -7,7 +7,6 @@ class SampleCard extends StatefulWidget {
   final String imageUrl;
   final String title;
   final String content;
-  final int productId;  // 서버에서의 제품 ID
   final VoidCallback onDelete;
 
   const SampleCard({
@@ -15,7 +14,6 @@ class SampleCard extends StatefulWidget {
     required this.imageUrl,
     required this.title,
     required this.content,
-    required this.productId,  // 서버에서의 제품 ID
     required this.onDelete,
     super.key,
   });
@@ -29,26 +27,83 @@ class _SampleCardState extends State<SampleCard> {
   bool isOrderable = true;
 
   Future<void> _updateOrderableStatus(bool newStatus) async {
+    // UI를 즉각적으로 업데이트
+    setState(() {
+      isOrderable = newStatus;
+    });
+
     final response = await http.put(
-      Uri.parse('http://10.0.2.2:8001/products/${widget.productId}'),
+      Uri.parse('http://10.0.2.2:8001/products/${widget.index}'),
       headers: {'Content-Type': 'application/json'},
       body: json.encode({'orderablestatus': newStatus}),
     );
 
-    if (response.statusCode == 200) {
+    if (response.statusCode != 200) {
+      // 요청 실패 시 상태를 복원
       setState(() {
-        isOrderable = newStatus;
+        isOrderable = !newStatus;
+      });
+      throw Exception('Failed to update orderable status');
+    }
+
+    final snackBar = SnackBar(
+      content: Text(
+        newStatus ? "주문 가능 상태로 변경되었습니다." : "주문 불가능 상태로 변경되었습니다.",
+      ),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+  Future<void> _updateFavoriteStatus(bool newStatus) async {
+    // UI를 즉각적으로 업데이트
+    setState(() {
+      isFavorite = newStatus;
+    });
+
+    try {
+      if (newStatus) {
+        // 좋아요를 추가하는 경우
+        final favoriteData = {
+          'index': widget.index,
+          'imageUrl': widget.imageUrl,
+          'title': widget.title,
+          'content': widget.content,
+        };
+
+        final response = await http.post(
+          Uri.parse('http://10.0.2.2:8001/cafe_favorite'),
+          headers: {'Content-Type': 'application/json'},
+          body: json.encode(favoriteData),
+        );
+
+        if (response.statusCode != 200 && response.statusCode != 201) {
+          throw Exception('Failed to add favorite');
+        }
+
+        final snackBar = SnackBar(content: Text("좋아요를 눌렀습니다!"));
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      } else {
+        // 좋아요를 취소하는 경우
+        final response = await http.delete(
+          Uri.parse('http://10.0.2.2:8001/cafe_favorite/${widget.index}'),
+        );
+
+        if (response.statusCode != 200 && response.statusCode != 204) {
+          throw Exception('Failed to remove favorite');
+        }
+
+        final snackBar = SnackBar(content: Text("좋아요를 취소했습니다."));
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      }
+    } catch (e) {
+      // 요청 실패 시 상태를 복원
+      setState(() {
+        isFavorite = !newStatus;
       });
 
-      final snackBar = SnackBar(
-        content: Text(
-          newStatus ? "주문 가능 상태로 변경되었습니다." : "주문 불가능 상태로 변경되었습니다.",
-        ),
-      );
-
+      final snackBar = SnackBar(content: Text("좋아요 상태 변경에 실패했습니다."));
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    } else {
-      throw Exception('Failed to update orderable status');
     }
   }
 
@@ -100,17 +155,7 @@ class _SampleCardState extends State<SampleCard> {
                 color: isFavorite ? Colors.red : Colors.grey,
               ),
               onPressed: () {
-                setState(() {
-                  isFavorite = !isFavorite;
-                });
-
-                final snackBar = SnackBar(
-                  content: Text(
-                    isFavorite ? "좋아요를 눌렀습니다!" : "좋아요를 취소했습니다.",
-                  ),
-                );
-
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                _updateFavoriteStatus(!isFavorite);
               },
             ),
             IconButton(
