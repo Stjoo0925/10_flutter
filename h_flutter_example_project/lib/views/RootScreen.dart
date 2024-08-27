@@ -4,15 +4,15 @@ import 'package:h_flutter_example_project/controllers/CoffeeViewModel.dart';
 import 'package:h_flutter_example_project/widgets/CoffeeWidget.dart';
 import 'package:provider/provider.dart';
 
-class RootScreen extends StatefulWidget{
-  const RootScreen({super.key});
+class Rootscreen extends StatefulWidget{
+  const Rootscreen({super.key});
 
   @override
   _RootState createState() => _RootState();
 }
 
 
-class _RootState extends State<RootScreen>{
+class _RootState extends State<Rootscreen>{
 
   @override
   void initState() {

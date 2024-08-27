@@ -1,28 +1,28 @@
+
 import 'package:hive/hive.dart';
 
-part 'CoffeeItem.g.dart';
+part "CoffeeItem.g.dart";
 // flutter pub get
 // flutter pub run build_runner build
 
 @HiveType(typeId: 0)
-class CoffeeItem {
+class CoffeeItem{
   @HiveField(0)
   String? title;
+
   @HiveField(1)
   String? description;
+
   @HiveField(2)
-  List<String>? ingredients;
+  List<String>?  ingredients;
+
   @HiveField(3)
   String? image;
 
-  CoffeeItem({
-    required this.title,
-    required this.description,
-    required this.ingredients,
-    required this.image
-  });
-
+  CoffeeItem({required this.title,required this.description,required this.ingredients,required this.image});
   CoffeeItem.empty();
+
+  // {"0":"제목 내용 리스트 이미지"}
 
   factory CoffeeItem.fromJson(Map<String, dynamic> json) {
     return CoffeeItem(

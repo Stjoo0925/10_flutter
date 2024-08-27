@@ -52,7 +52,7 @@ class CoffeeWidget extends StatelessWidget {
                     // 좋아요 버튼
                   },
                   icon: Icon(
-                    isTrue ? Icons.favorite : Icons.favorite_border,
+                     isTrue ? Icons.favorite : Icons.favorite_border,
                     color: isTrue? Colors.red : Colors.black,
                   ),
                 ),

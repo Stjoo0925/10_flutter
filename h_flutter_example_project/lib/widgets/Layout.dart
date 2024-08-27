@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:h_flutter_example_project/views/RootScreen.dart';
 
-import '../views/RootScreen.dart';
-
-class Layout extends StatefulWidget {
+class Layout extends StatefulWidget{
   const Layout({super.key});
 
   @override
   _LayoutState createState() => _LayoutState();
 }
 
-class _LayoutState extends State<Layout> {
+
+class _LayoutState extends State<Layout>{
 
   int _currentIndex = 0;
 
@@ -21,15 +21,13 @@ class _LayoutState extends State<Layout> {
   }
 
   final List<Widget> _pages = [
-    const RootScreen(),
+    const Rootscreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Coffee Cards"),
-      ),
+      appBar: AppBar(title: const Text("Coffee Cards")),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

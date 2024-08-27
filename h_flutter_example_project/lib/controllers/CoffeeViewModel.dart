@@ -1,11 +1,13 @@
-import 'package:flutter/cupertino.dart';
-import 'package:h_flutter_example_project/services/CoffeService.dart';
+import 'package:flutter/foundation.dart';
+import 'package:h_flutter_example_project/models/CoffeeItem.dart';
+import 'package:h_flutter_example_project/services/CoffeeService.dart';
+import '../services/CoffeeService.dart';
 
-import '../models/CoffeeItem.dart';
-
-class CoffeeViewModel extends ChangeNotifier {
+class CoffeeViewModel extends ChangeNotifier{
   List<CoffeeItem> _coffeeItems = [];
   List<CoffeeItem> get coffeeItems => _coffeeItems;
+
+
 
   final CoffeeService _coffeeService;
 
@@ -13,13 +15,15 @@ class CoffeeViewModel extends ChangeNotifier {
     _initializeHive();
   }
 
-  Future<void> _initializeHive() async {
+  Future<void> _initializeHive() async{
     await _coffeeService.initializeHive();
     await fetchCoffeeItems();
   }
 
-  Future<void> fetchCoffeeItems() async {
+  Future<void> fetchCoffeeItems() async{
     _coffeeItems = await _coffeeService.fetchCoffeeItems();
     notifyListeners();
   }
+
+
 }
