@@ -1,8 +1,10 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /*
 * 상태 관리를 사용하지 않는면 다음과 같은 문제점을 확인할 수 있다.
+*
 * 1. ui 일관성 부족
 * 상태가 변경디었음에도 불구하고 ui가 적절하게 업데이트되지 않을 수 있다. 이로 인해 사용자는 잘못된 정보를 보거나
 * 예기치 않은 동작을 경험할 수 있다.
@@ -35,14 +37,14 @@ import 'package:flutter/material.dart';
 * 상태를 적절히 관리하지 않으면 여러 문제를 초래할 수 있으며, 이는 사용자 경험에도 부정적인 영향을 미칠 수 있다.
 * 따라서 flutter와 같은 프레임워크에서는 상태 관리 패턴이나 라이브러리를 활용하여 상태를 체계적으로 관리하는 것이 권장된다.
 * */
-
-class NonStateScreen extends StatefulWidget {
+class NonStatescreen extends StatefulWidget{
 
   @override
-  NoneState createState() => NoneState();
+  _NoneState createState() => _NoneState();
 }
 
-class NoneState extends State<NonStateScreen> {
+
+class _NoneState extends State<NonStatescreen>{
   int _count = 0;
 
   void increment(){
@@ -59,9 +61,9 @@ class NoneState extends State<NonStateScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print("---------------------");
-    print("상태관리를 하지 않는 경우");
-    print("---------------------");
+    print("------------------------");
+    print("상태 관리를 하지 않는 경우");
+    print("------------------------");
 
     return Center(
       child: Column(
@@ -77,20 +79,20 @@ class NoneState extends State<NonStateScreen> {
   }
 }
 
-class _NonText extends StatelessWidget {
+class _NonText extends StatelessWidget{
   int? _count;
 
   _NonText(this._count);
 
   @override
   Widget build(BuildContext context) {
-    print("---------------------");
+    print("------------------");
     print("_NonText");
-    print("---------------------");
+    print("------------------");
 
     return Text(
       "Counter : $_count",
-      style: const TextStyle(fontSize: 24),
+      style: const TextStyle( fontSize: 24),
     );
   }
 }

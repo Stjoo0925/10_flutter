@@ -1,16 +1,16 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 
-class CounterViewModel extends ChangeNotifier {
+class CounterViewmodel extends ChangeNotifier{
   int _count = 0;
 
-  int get count => _count; // java의 gatter와 같은 역할
+  int get count => _count; // java의 getter와 같은 것임
 
-  void increment() {
+  void increment(){
     _count++;
     notifyListeners();
   }
 
-  void decrement() {
+  void decrement(){
     _count--;
     notifyListeners();
   }
