@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
-
-import '../service/FavoriteService.dart';
+import 'package:h_flutter_example_project/services/FavoriteService.dart';
 
 class FavoriteViewModel extends ChangeNotifier{
   final FavoriteService _favoriteService;
@@ -10,7 +9,7 @@ class FavoriteViewModel extends ChangeNotifier{
   FavoriteViewModel(this._favoriteService);
 
   bool isFavorite(int index) {
-    return _favoriteService.isFavorite(index);
+   return _favoriteService.isFavorite(index);
   }
 
   void toggleFavorite(int index){
@@ -18,7 +17,7 @@ class FavoriteViewModel extends ChangeNotifier{
     notifyListeners();
   }
 
-  List<int> getFavoriteIndices() {
+  List<int> getFavoriteIndices(){
     return _favoriteService.getFavoriteIndices();
   }
 }

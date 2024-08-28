@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 * 애플리케이션의 테마 스타일과 색상, 폰트, 버튼 등의 스타일을 전역에서 정의하여
 * 일관된 ui를 화면서 표시하기 위한 용도의 패키지이다.
 * */
-class CafeAppTheme {
+class Numbertheme {
 
   static ThemeData lightTheme = ThemeData(
       primaryColor: Colors.blue,

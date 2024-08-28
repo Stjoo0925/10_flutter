@@ -1,10 +1,10 @@
+
 import 'package:hive/hive.dart';
 
 part 'FavoriteItem.g.dart';
 
 @HiveType(typeId: 1)
-class FavoriteItem {
-
+class FavoriteItem{
   @HiveField(0)
   final int index;
 

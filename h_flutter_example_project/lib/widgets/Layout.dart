@@ -1,57 +1,60 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:h_flutter_example_project/views/AddNumberScreen.dart';
+import 'package:h_flutter_example_project/views/FavoriteNumberListScreen.dart';
 import 'package:h_flutter_example_project/views/RootScreen.dart';
 
-import '../views/AddCoffeeScreen.dart';
-import '../views/FavoriteCoffeeListScreen.dart';
-
 class Layout extends StatefulWidget{
-  const Layout({super.key});
+  Layout({super.key});
 
   @override
-  _LayoutState createState() => _LayoutState();
+  LayoutState createState() => LayoutState();
 }
 
 
-class _LayoutState extends State<Layout>{
+class LayoutState extends State<Layout>{
+  int _currunIndex = 0;
 
-  int _currentIndex = 0;
 
-  void _onTapped(int index){
+  void _onItemTapped(int index){
     setState(() {
-      _currentIndex = index;
+      _currunIndex = index;
     });
   }
 
   final List<Widget> _pages = [
     const Rootscreen(),
-    FavoriteCoffeeListScreen(),
-    AddCoffeeScreen()
+    FavoriteNumberListScreen(),
+    AddNumberScreen()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Coffee Cards")),
-      body: _pages[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "home"
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.coffee),
-              label: "Favorite"
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.add),
-              label: "add"
-          ),
-        ],
-        currentIndex: _currentIndex,
-        onTap: _onTapped,
-      ),
+      // Scaffold로 변경
+        appBar: AppBar(title: const Text("전화번호"), backgroundColor: Colors.black,), // AppBar 추가
+        body: _pages[_currunIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.black,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+                icon: Icon(Icons.people),
+                label: "people"
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.bookmark),
+                label: "bookmark"
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.add),
+                label: "add"
+            ),
+          ],
+          currentIndex: _currunIndex,
+          selectedItemColor: Colors.white, // 선택된 항목 라벨 색상
+          unselectedItemColor: Colors.grey, // 선택되지 않은 항목 라벨 색상
+          showUnselectedLabels: true, // 선택되지 않은 항목 라벨도 표시
+          onTap: _onItemTapped,
+        )
     );
   }
 }

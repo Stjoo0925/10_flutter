@@ -8,7 +8,7 @@ class FavoriteService {
 
 
   bool isFavorite(int index) {
-    return _favoriteBox!.values.any((item) => item.index == index);
+      return _favoriteBox!.values.any((item) => item.index == index);
   }
 
   void toggleFavorite(int index){
@@ -29,7 +29,7 @@ class FavoriteService {
 
   }
 
-  List<int> getFavoriteIndices() {
+  List<int> getFavoriteIndices(){
     List<int> list = [];
 
     for(var item in _favoriteBox.values){
@@ -38,6 +38,4 @@ class FavoriteService {
 
     return list;
   }
-
-
 }

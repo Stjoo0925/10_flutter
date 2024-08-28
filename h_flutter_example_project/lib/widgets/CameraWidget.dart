@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
-class CameraWidget extends StatefulWidget{
-  String? imagePath;
-  Function? setMethod;
+class CameraWidget extends StatefulWidget {
+  final String? imagePath;
+  final Function(String?)? setMethod; // String? 타입 인자를 받는 함수로 정의
 
   CameraWidget({required this.imagePath, required this.setMethod});
 
@@ -14,10 +14,8 @@ class CameraWidget extends StatefulWidget{
 }
 
 class _CameraWidgetState extends State<CameraWidget> {
-  late CameraController _cameraController;
+  late CameraController _controller;
   Future<void>? _initializeControllerFuture;
-
-  _CameraWidgetState();
 
   @override
   void initState() {
@@ -27,16 +25,14 @@ class _CameraWidgetState extends State<CameraWidget> {
 
   Future<void> _initializeCamera() async {
     final cameras = await availableCameras();
-    _cameraController = CameraController(cameras[0], ResolutionPreset.high);
-    _initializeControllerFuture = _cameraController.initialize();
-    setState(() {
-    });
+    _controller = CameraController(cameras[0], ResolutionPreset.high);
+    _initializeControllerFuture = _controller.initialize();
+    setState(() {});
   }
 
-  // 카메라의 리로스를 제거
   @override
   void dispose() {
-    _cameraController.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
@@ -49,36 +45,39 @@ class _CameraWidgetState extends State<CameraWidget> {
           height: 500,
           child: FutureBuilder<void>(
             future: _initializeControllerFuture,
-            builder: (context, snapshot){
-              if(snapshot.connectionState == ConnectionState.waiting){
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(child: CircularProgressIndicator());
-              }else if(snapshot.connectionState == ConnectionState.done){
-                if(widget.imagePath != null){
-                  return Image.file(File(widget.imagePath!), fit: BoxFit.contain);
+              } else if (snapshot.connectionState == ConnectionState.done) {
+                if (widget.imagePath != null) {
+                  return Image.file(File(widget.imagePath!), fit: BoxFit.cover);
                 }
-                return CameraPreview(_cameraController);
-              }else{
-                return const Center(child: Text("카메라 초기화 실패"));
+                return CameraPreview(_controller);
+              } else {
+                return const Center(child: Text('카메라 초기화 실패'));
               }
             },
           ),
         ),
         widget.imagePath == null
             ? FloatingActionButton(
-                onPressed: () async {
-                  try{
-                    await _initializeControllerFuture;
-                    final image = await _cameraController.takePicture();
-                    widget.setMethod!(image.path);
-                  }catch(e){
-                    print(e);
-                  }
-                },
-              child: const Icon(Icons.camera),
-            )
-            : IconButton(icon: const Icon(Icons.cancel_presentation), onPressed: (){
-              widget.setMethod!();
-        })
+          onPressed: () async {
+            try {
+              await _initializeControllerFuture;
+              final image = await _controller.takePicture();
+              widget.setMethod!(image.path); // 이미지 경로 전달
+            } catch (e) {
+              print(e);
+            }
+          },
+          child: const Icon(Icons.camera),
+        )
+            : IconButton(
+          icon: const Icon(Icons.cancel_presentation),
+          onPressed: () {
+            widget.setMethod!(null); // null 전달하여 이미지 취소 처리
+          },
+        ),
       ],
     );
   }
