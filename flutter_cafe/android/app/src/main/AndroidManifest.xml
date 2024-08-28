@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="flutter_cafe"
+        android:label="h_flutter_example_project"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

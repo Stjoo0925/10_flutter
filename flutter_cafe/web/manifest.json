@@ -1,11 +1,11 @@
 {
-    "name": "flutter_cafe",
-    "short_name": "flutter_cafe",
+    "name": "h_flutter_example_project",
+    "short_name": "h_flutter_example_project",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "cafe project",
+    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

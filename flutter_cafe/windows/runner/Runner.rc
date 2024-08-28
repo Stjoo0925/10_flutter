@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.ohgiraffers" "\0"
-            VALUE "FileDescription", "flutter_cafe" "\0"
+            VALUE "FileDescription", "h_flutter_example_project" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "flutter_cafe" "\0"
+            VALUE "InternalName", "h_flutter_example_project" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.ohgiraffers. All rights reserved." "\0"
-            VALUE "OriginalFilename", "flutter_cafe.exe" "\0"
-            VALUE "ProductName", "flutter_cafe" "\0"
+            VALUE "OriginalFilename", "h_flutter_example_project.exe" "\0"
+            VALUE "ProductName", "h_flutter_example_project" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

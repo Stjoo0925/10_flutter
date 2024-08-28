@@ -1,3 +1,3 @@
-# flutter_cafe
+# h_flutter_example_project
 
-cafe project
+A new Flutter project.
