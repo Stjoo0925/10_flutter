@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:h_flutter_example_project/controllers/CoffeeViewModel.dart';
+import 'package:h_flutter_example_project/controllers/FavoriteViewModel.dart';
 import 'package:h_flutter_example_project/models/CoffeeItem.dart';
+import 'package:h_flutter_example_project/models/FavoriteItem.dart';
 import 'package:h_flutter_example_project/service/CoffeeService.dart';
+import 'package:h_flutter_example_project/service/FavoriteService.dart';
 import 'package:h_flutter_example_project/themes/CoffeeTheme.dart';
 import 'package:h_flutter_example_project/widgets/Layout.dart';
 import 'package:hive/hive.dart';
@@ -25,11 +28,17 @@ void main() async{
   Hive.init(directory.path);
 
   Hive.registerAdapter(CoffeeItemAdapter());
+  Hive.registerAdapter(FavoriteItemAdapter());
+
+  await Hive.openBox<FavoriteItem>("favoriteBox");
 
   runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider(
             create: (context) => CoffeeViewModel(CoffeeService())
+        ),
+        ChangeNotifierProvider(
+            create: (context) => FavoriteViewModel(FavoriteService())
         ),
       ],
     child: const MainApp(),

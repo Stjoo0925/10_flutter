@@ -34,5 +34,4 @@ class CoffeeItem{
       image: json["image"],
     );
   }
-
 }

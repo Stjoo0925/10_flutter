@@ -51,4 +51,8 @@ class CoffeeService{
   Future<void> deleteCoffeeItem(int index) async {
     await _coffeeBox?.deleteAt(index);
   }
+
+  Future<void> addCoffeeItem(CoffeeItem coffeeItem) async{
+    await _coffeeBox?.add(coffeeItem);
+  }
 }

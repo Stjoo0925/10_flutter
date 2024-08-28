@@ -11,6 +11,7 @@ class CoffeeViewModel extends ChangeNotifier{
   List<CoffeeItem> get coffeeItems => _coffeeItems;
 
   CoffeeItem? _coffeeItem;
+  CoffeeItem? get coffeeItem => _coffeeItem;
 
   final CoffeeService _coffeeService;
 
@@ -69,5 +70,44 @@ class CoffeeViewModel extends ChangeNotifier{
           ],
     )
     );
+  }
+
+  void setImage([String? path]){
+    if(_coffeeItem?.image == null){
+      _coffeeItem?.image = path;
+    }else{
+      _coffeeItem?.image = null;
+    }
+  }
+
+  void setTitle(String? title){
+    _coffeeItem?.title = title;
+  }
+
+  void setDescription(String? description){
+    _coffeeItem?.description = description;
+  }
+
+  bool validateForm(GlobalKey<FormState> formKey){
+    return formKey.currentState!.validate();
+  }
+
+  void saveForm(GlobalKey<FormState> formKey, BuildContext context) async{
+    if(validateForm(formKey)){
+      formKey.currentState!.save();
+      if(_coffeeItem != null){
+        try{
+          await _coffeeService.addCoffeeItem(_coffeeItem!);
+          formKey.currentState!.reset();
+          _coffeeItem = CoffeeItem.empty();
+          
+          Navigator.pushNamed(context, "/");
+        }catch(e){
+          print("hive에 데이터를 저장하는 과정에서 요류 발생 : $e");
+        }
+      }else{
+        print("coffeeItem이 유효하지 않습니다.");
+      }
+    }
   }
 }

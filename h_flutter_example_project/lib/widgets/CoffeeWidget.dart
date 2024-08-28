@@ -4,6 +4,8 @@ import 'package:h_flutter_example_project/models/CoffeeItem.dart';
 import 'package:h_flutter_example_project/widgets/ImageWidget.dart';
 import 'package:provider/provider.dart';
 
+import '../controllers/FavoriteViewModel.dart';
+
 class CoffeeWidget extends StatelessWidget {
   final CoffeeItem coffeeItem;
   final int index;
@@ -12,11 +14,10 @@ class CoffeeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final favoriteViewModel = Provider.of<FavoriteViewModel>(context);
+    final favoriteViewModel = Provider.of<FavoriteViewModel>(context);
     final coffeeViewModel = Provider.of<CoffeeViewModel>(context);
 
-    // bool isTure = favoriteViewModel.isFavorite(index);
-    bool isTrue = true;
+    bool isTrue = favoriteViewModel.isFavorite(index);
 
     return Container(
       width: double.infinity,
@@ -43,12 +44,14 @@ class CoffeeWidget extends StatelessWidget {
                   )
                 ],
               )),
+
+
               SizedBox(
                 width: 50,
                 height: 50,
                 child: IconButton(
                   onPressed: (){
-                    // 좋아요 버튼
+                    favoriteViewModel.toggleFavorite(index);
                   },
                   icon: Icon(
                      isTrue ? Icons.favorite : Icons.favorite_border,
@@ -56,6 +59,8 @@ class CoffeeWidget extends StatelessWidget {
                   ),
                 ),
               ),
+
+
               SizedBox(
                 width: 50,
                 height: 50,
