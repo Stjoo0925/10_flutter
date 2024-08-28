@@ -26,12 +26,12 @@ class CoffeeItem{
 
   factory CoffeeItem.fromJson(Map<String, dynamic> json) {
     return CoffeeItem(
-        title: json['title'],
-        description: json['description'],
-        // JSON 데이터 변환: ingredients 필드를 리스트로 변환할 때,
-        // List<String>.from을 사용하여 JSON 데이터에서 가져온 리스트를 List<String>으로 안전하게 변환.
-        ingredients: List<String>.from(json["ingredients"]), // List<String>으로 변환
-        image: json["image"]
+      title: json['title'],
+      description: json['description'],
+      ingredients: json["ingredients"] is List
+          ? List<String>.from(json["ingredients"]) // 이미 List인 경우
+          : [json["ingredients"].toString()], // String인 경우 List로 변환
+      image: json["image"],
     );
   }
 

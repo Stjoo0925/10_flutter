@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:h_flutter_example_project/controllers/CoffeeViewModel.dart';
 import 'package:h_flutter_example_project/models/CoffeeItem.dart';
-import 'package:h_flutter_example_project/services/CoffeeService.dart';
+import 'package:h_flutter_example_project/service/CoffeeService.dart';
 import 'package:h_flutter_example_project/themes/CoffeeTheme.dart';
 import 'package:h_flutter_example_project/widgets/Layout.dart';
 import 'package:hive/hive.dart';

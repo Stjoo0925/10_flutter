@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:h_flutter_example_project/controllers/CoffeeViewModel.dart';
 import 'package:h_flutter_example_project/models/CoffeeItem.dart';
@@ -26,7 +25,7 @@ class CoffeeWidget extends StatelessWidget {
           color: Colors.white10,
           border: Border.all(color: Colors.black, width: 2.0)),
       child: ElevatedButton(
-        onPressed: () => print("네비게이션 기능 추가해야됨"),
+        onPressed: () => coffeeViewModel.detailsCofffeeItem(context, index),
         child: Center(
           child: Row(
             children: [
@@ -62,7 +61,7 @@ class CoffeeWidget extends StatelessWidget {
                 height: 50,
                 child: IconButton(
                   onPressed: (){
-                    // 삭제
+                    coffeeViewModel.deleteItem(context, index-1);
                   },
                   icon: const Icon(
                     Icons.cancel,
