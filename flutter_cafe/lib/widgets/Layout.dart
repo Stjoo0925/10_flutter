@@ -31,7 +31,7 @@ class LayoutState extends State<Layout>{
   Widget build(BuildContext context) {
     return Scaffold(
       // Scaffold로 변경
-        appBar: AppBar(title: const Text("전화번호"), backgroundColor: Colors.black,), // AppBar 추가
+        appBar: AppBar(title: const Text("전화번호", style: TextStyle(color: Colors.white),), backgroundColor: Colors.black,), // AppBar 추가
         body: _pages[_currunIndex],
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.black,

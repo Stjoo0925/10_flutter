@@ -34,7 +34,7 @@ class NumberWidget extends StatelessWidget {
       height: 150,
       color: Colors.white,
       child: ElevatedButton(
-        style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.white)),
+        style: ButtonStyle(backgroundColor: WidgetStateProperty.all<Color>(Colors.white)),
         onPressed: () => numberViewModel.detailsNumberItem(context, index),
         child: Center(
           child: Row(
