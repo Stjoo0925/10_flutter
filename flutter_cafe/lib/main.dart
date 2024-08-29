@@ -4,7 +4,6 @@ import 'package:h_flutter_example_project/controllers/NumberViewModel.dart';
 import 'package:h_flutter_example_project/controllers/FavoriteViewModel.dart';
 import 'package:h_flutter_example_project/services/PhoneService.dart';
 import 'package:h_flutter_example_project/services/FavoriteService.dart';
-import 'package:h_flutter_example_project/themes/NumberTheme.dart';
 import 'package:h_flutter_example_project/widgets/Layout.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';

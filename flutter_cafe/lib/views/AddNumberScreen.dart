@@ -33,19 +33,19 @@ class _AddNumberScreenState extends State<AddNumberScreen> {
                     FormWidget(
                       value: viewModel.numberItem?.title ?? "",
                       setValue: viewModel.setTitle,
-                      label: "이름을 입력하세요",
+                      label: "이름",
                       keyboardType: TextInputType.text,
                     ),
                     FormWidget(
                       value: viewModel.numberItem?.phoneNumber ?? "",
                       setValue: viewModel.setPhoneNumber,
-                      label: "전화번호를 입력하세요",
+                      label: "전화번호",
                       keyboardType: TextInputType.phone,
                     ),
                     FormWidget(
                       value: viewModel.numberItem?.description ?? "",
                       setValue: viewModel.setDescription,
-                      label: "설명을 입력하세요",
+                      label: "설명",
                     ),
                     SizedBox(
                       width: double.infinity,
